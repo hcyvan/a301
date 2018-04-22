@@ -1,0 +1,161 @@
+html body {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    height: 45px;
+    background-color: #e3e4e5;
+    margin: 0 auto;
+}
+.header .fr {
+    float: right;
+    margin: 0;
+    line-height: 45px;
+}
+.header ul {
+    list-style: none;
+}
+.header ul li {
+    float: left;
+}
+.header ul li.spacer {
+    margin: 14px 15px auto;
+    width: 2px;
+    height: 18px;
+    background-color: #ccc;
+}
+.header a {
+    text-decoration: none;
+    color: #999;
+}
+.header a.to-register {
+    color: #2a9930;
+}
+.search {
+    width: 550px;
+    height: 40px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border: 1px solid #2a9930;
+}
+.search .text {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 480px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+}
+
+.search .search-btn {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    color: #fff;
+    background-color: #2a9930;
+    border: 0;
+}
+.search-btn:hover {
+    background-color: #237629;
+}
+.sort-bar {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 7px 0;
+    background-color: #f1f1f1;
+}
+.sort-bar .sort-item {
+    margin-left: 8px;
+}
+.sort-bar .sort-item a {
+    float: left;
+    padding: 0 9px;
+    height: 24px;
+    border: 1px solid #ccc;
+    line-height: 24px;
+    margin-right: -1px;
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+}
+.sort-bar .sort-item a:hover {
+    border: 1px solid #2a9930;
+    color: #2a9930;
+}
+.sort-bar .sort-item a.active {
+    border: 1px solid #2a9930;
+    background-color: #2a9930;
+    color: #fff;
+}
+.sort-bar .summary {
+    float: right;
+    margin-right: 8px;
+    font-size: 14px;
+    color: #333;
+}
+.product-list-wrapper {
+    padding: 0 0;
+    list-style: none;
+}
+.product-list-wrapper::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.product-list-wrapper .product {
+    float: left;
+    box-sizing: border-box;
+    padding: 12px 9px;
+    width: 276px;
+    height: 470px;
+}
+.product-list-wrapper .product:hover {
+    border: 1px solid #ccc;
+}
+.product-list-wrapper .pic {
+    text-align: center;
+}
+.product-list-wrapper .pic img{
+    box-sizing: border-box;
+    width: 220px;
+    height: 220px;
+}
+.product-list-wrapper .price {
+    color: #f00;
+}
+.product-list-wrapper .title {
+    height: 80px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #dddddd;
+}
+.product-list-wrapper .detail {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.product-list-wrapper .detail ul {
+    padding: 0 0;
+}
+.product-list-wrapper .detail li {
+    list-style: none;
+}
+.logo {
+    position: absolute;
+    top: 45px;
+    left: calc(50% - 1380px/2 + 50px);
+    height: 120px;
+    width: 120px;
+    background: url("/images/logo.gif") no-repeat;
+    background-size: 120px 120px;
+}
+.w {
+    width: 1380px;
+    margin: 0 auto;
+}

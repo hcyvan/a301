@@ -1,0 +1,96 @@
+body {
+    margin: 0 auto;
+    color: #333333;
+}
+.header {
+    height: 120px;
+    border-bottom: 1px solid rgba(135, 135, 135, 0.55);
+}
+.header .logo {
+    float: left;
+    display: inline-block;
+    height: 120px;
+    width: 120px;
+    background: url("/images/logo.gif") no-repeat;
+    background-size: 120px 120px;
+}
+.header .logo-title {
+    float: left;
+    display: inline-block;
+    margin: 34px 0px 0px 50px;
+    font-size: 24px;
+    color: #333333;
+}
+.header .have-account {
+    float: right;
+    margin-top: 55px;
+    font-size: 16px;
+    color: #999999;
+}
+.header .have-account a {
+    text-decoration: none;
+    color: #2a9930;
+}
+.content {
+    height: 200px;
+}
+.login {
+    padding-top: 150px;
+    width: 388px;
+    height: 500px;
+}
+.form-item {
+    margin-top: 10px;
+    width: 388px;
+}
+.form-item::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.form-item .form-tag {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    padding-right: 20px;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    text-align: right;
+}
+.form-input-wrapper {
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+    width: 288px;
+    height: 50px;
+    border: solid 1px #ddd;
+}
+.form-input-wrapper input {
+    width: 250px;
+    height: 45px;
+    padding-left: 20px;
+    font-size: 20px;
+    border: 0 none;
+    outline: 0;
+}
+.btn-register {
+    width: 288px;
+    height: 50px;
+    float: right;
+    color: #ffffff;
+    font-size: 18px;
+    background-color: #2a9930;
+    border: 0;
+    cursor: pointer;
+}
+.btn-register:hover {
+    background-color: #237629;
+}
+.w {
+    width: 1210px;
+    margin: 0 auto;
+}
+.m {
+    margin: 0 auto;
+}
