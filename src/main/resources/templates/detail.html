@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>A301</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/css/common.css" />
+    <style type="text/css">
+        .content .cl {
+            box-sizing: border-box;
+            padding-top: 35px;
+            float: left;
+            width: 1080px;
+            height: 100px;
+            border-top: 1px solid #999;
+        }
+        .content .cl .pic {
+            float: left;
+            width: 440px;
+            height: 540px;
+            margin-right: 30px;
+
+        }
+        .content .cl .info {
+            box-sizing: border-box;
+            float: left;
+            width: 540px;
+        }
+        .content .cl .info .title {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .content .cl .info .panel {
+            margin: 40px 0  ;
+            padding: 10px 0;
+            background-color: #eee;
+        }
+        .content .cl .info .panel ul {
+            list-style: none;
+            padding: 0;
+            line-height: 50px;
+        }
+        .content .cl .info span {
+            display: inline-block;
+            width: 100px;
+            margin-left: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .content .cl .info .span-title {
+            float: left;
+        }
+        .content .cl .info .format-content {
+            box-sizing: border-box;
+            float: left;
+            width: 420px;
+            height: 100px;
+        }
+        .content .cl .info .format-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .content .cl .info .format-content ul li {
+            float: left;
+            height: 30px;
+            min-width: 80px;
+            margin: 0 0 8px 8px;
+            padding: 2px 5px;
+            text-align: center;
+            line-height: 30px;
+            color: #333;
+            border: 1px solid #999;
+        }
+        .content .cl .info .number-picker input {
+            height: 30px;
+            width: 50px;
+            padding: 0 5px;
+            font-size: 16px;
+        }
+        .content .cl .info .buy {
+            margin: 30px 0;
+        }
+        .content .cl .info .buy::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        .content .cl .info .buy button {
+            float: right;
+            height: 44px;
+            margin-left: 10px;
+            padding: 0 20px;
+            font-size: 18px;
+        }
+        .content .cl .info .buy .add-cart {
+
+        }
+        .content .cl .info .buy .buy-now {
+            color: #fff;
+            background-color: #2a9930;
+            border: none;
+        }
+        .content .cl .detail {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 500px;
+            margin-top: 30px;
+            border: 1px solid #ddd;
+            border-top: 2px solid #ddd;
+        }
+        .content .cr {
+            box-sizing: border-box;
+            float: left;
+            width: 300px;
+            height: 200px;
+        }
+        .content .cr .seller {
+            margin: 0 20px;
+            color: #333;
+            border: 1px solid #2a9930;
+        }
+        .content .cr .seller .title {
+            height: 42px;
+            text-align: center;
+            color: #fff;
+            line-height: 42px;
+            background-color: #2a9930;
+        }
+        .content .cr .seller ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .content .cr .seller .name {
+            margin: 10px 0 20px;
+        }
+        .tab {
+            box-sizing: padding-box;
+            height: 46px;
+            background-color: #eee;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab button {
+            height: 100%;
+            padding: 5px 6px;
+            font-size: 18px;
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        .tab button.active {
+            background-color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            border-top: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="w">
+            <ul class="fr">
+                <li>
+                    <a href="/login">您好，请登陆</a>
+                    &nbsp;&nbsp;
+                    <a href="/register" class="to-register">免费注册</a>
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <a href="#">实验指南</a>
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <a href="#">其他</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content w">
+        <div class="logo"></div>
+        <div class="search">
+            <input class="text"><!--
+        --><button class="search-btn">搜索</button>
+        </div>
+        <div style="height: 40px"></div>
+        <div class="cl">
+            <div class="pic">
+                <img width="440px" height="440px" src="/images/demo/p1.gif">
+            </div>
+            <div class="info">
+                <div class="title"><b>EpiZyme TBE电泳缓冲液（5×）（5 L）电泳液</b></div>
+                <div class="panel">
+                    <ul>
+                        <li><span>价格: </span>￥200.00</li>
+                        <li><span>销量: </span>275</li>
+                        <li><span>货号: </span>PS109S</li>
+                        <li><span>品牌: </span>Sigma</li>
+                        <li><span>包装: </span>500 ML/袋</li>
+                        <li><span>货期: </span>现货</li>
+                    </ul>
+                </div>
+                <span class="span-title">规格：</span>
+                <div class="format-content">
+                    <ul>
+                        <li>1L</li>
+                        <li>300mL</li>
+                        <li>500000000000mL</li>
+                        <li>600mL</li>
+                        <li>700mL</li>
+                        <li>800mL</li>
+                    </ul>
+                </div>
+                <br clear="both"/>
+                <span class="span-title">数量:</span>
+                <div class="number-picker">
+                    <input type="text" value="1">
+                </div>
+                <br clear="both"/>
+                <div class="buy">
+                    <button class="add-cart">加入购物车</button>
+                    <button class="buy-now">立即购买</button>
+                </div>
+            </div>
+            <br clear="both"/>
+            <div class="detail">
+                <div class="tab">
+                    <button class="tablinks active" onclick="openCity(event, 'London')">产品详情</button><!--
+                    --><button class="tablinks" onclick="openCity(event, 'Paris')">产品详情</button><!--
+                    --><button class="tablinks" onclick="openCity(event, 'Tokyo')">产品详情</button>
+                </div>
+                <div id="London" class="tabcontent" style="display: block">
+                    <h3>EpiZyme TBE电泳缓冲液（5×）（5 L）电泳液</h3>
+                    <p>London is the capital city of England.</p>
+                </div>
+                <div id="Paris" class="tabcontent">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p>
+                </div>
+                <div id="Tokyo" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="cr">
+            <div class="seller">
+                <div class="title">店铺信息</div>
+                <ul>
+                    <li class="name">张旭生物公司</li>
+                    <li>邮箱: 123456@gmail.com</li>
+                    <li>电话: 18888888888</li>
+                    <li>地址: 上海市闵行区立跃路2995号</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="application/javascript">
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

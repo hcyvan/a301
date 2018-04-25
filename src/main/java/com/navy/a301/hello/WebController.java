@@ -25,5 +25,9 @@ public class WebController {
     public String index() {
         return "index";
     }
+    @GetMapping("/detail")
+    public String detail() {
+        return "detail";
+    }
 
 }
