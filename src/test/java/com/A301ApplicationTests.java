@@ -1,4 +1,4 @@
-package com.navy.a301;
+package com;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

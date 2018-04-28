@@ -1,4 +1,4 @@
-package com.navy.a301.hello;
+package com.hello;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
