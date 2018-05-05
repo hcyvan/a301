@@ -1,4 +1,4 @@
-package com.hello;
+package com.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
