@@ -1,4 +1,4 @@
-package com.navy.c.pojo;
+package com.navy.common.pojo;
 
 public class SessionData {
     private String name;

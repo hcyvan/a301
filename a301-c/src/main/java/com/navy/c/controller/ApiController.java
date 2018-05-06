@@ -1,7 +1,5 @@
 package com.navy.c.controller;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -12,15 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.Authentication;
 
-import com.navy.c.pojo.SessionData;
-import com.navy.c.pojo.Result;
+import com.navy.common.pojo.SessionData;
+import com.navy.common.pojo.Result;
 import com.navy.c.service.SecurityService;
 import com.navy.common.model.Account;
 import com.navy.common.repository.AccountRepository;
 
 @RestController
 @RequestMapping("/api")
-public class apiController {
+public class ApiController {
     @Autowired
     private AccountRepository accountRepository;
     @Autowired
