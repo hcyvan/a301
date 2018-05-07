@@ -1,13 +1,14 @@
-package com.navy.common.model;
+package com.navy.c.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
-
 import org.hibernate.annotations.GenericGenerator;
 
+import com.navy.common.model.BaseEntity;
+
 @Entity
-public class Account {
+public class AccountC {
     @Id
     @GenericGenerator(name="systemUUID",strategy="uuid")
     @GeneratedValue(generator="systemUUID")

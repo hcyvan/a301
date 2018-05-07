@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.navy.common.model.Account;
-import com.navy.common.repository.AccountRepository;
+import com.navy.c.model.AccountC;
+import com.navy.c.repository.AccountRepository;
 
 import java.util.HashSet;
 
@@ -19,7 +19,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Account account = accountRepository.getAccountByEmail(email);
+        AccountC account = accountRepository.getAccountByEmail(email);
         return new User(account.getEmail(), account.getPassword(), new HashSet<>());
     }
 }

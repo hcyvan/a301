@@ -5,7 +5,6 @@ import com.navy.b.repository.AccountBRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.hibernate.exception.ConstraintViolationException;
 
 import com.navy.common.pojo.Result;
 

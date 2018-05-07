@@ -1,16 +1,16 @@
 package com.navy.b.model;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Column;
-import java.util.Date;
+
+import com.navy.common.model.BaseEntity;
+
 
 @Entity
-public class AccountB {
+public class AccountB extends BaseEntity{
     @Id
     @GenericGenerator(name="systemUUID",strategy="uuid")
     @GeneratedValue(generator="systemUUID")
@@ -19,10 +19,6 @@ public class AccountB {
     @Column(unique = true)
     private String cell;
     private String password;
-    @CreatedDate
-    private Long created;
-    @LastModifiedDate
-    private Long updated;
 
     public String getId() {
         return this.id;
@@ -48,11 +44,4 @@ public class AccountB {
     public void setPassword(String password) {
         this.password = password;
     }
-    public Long getCreated() {
-        return this.created;
-    }
-    public void setCreated(Long created) {
-        this.created = created;
-    }
-
 }

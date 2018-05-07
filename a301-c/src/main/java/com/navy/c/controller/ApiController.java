@@ -13,8 +13,8 @@ import org.springframework.security.core.Authentication;
 import com.navy.common.pojo.SessionData;
 import com.navy.common.pojo.Result;
 import com.navy.c.service.SecurityService;
-import com.navy.common.model.Account;
-import com.navy.common.repository.AccountRepository;
+import com.navy.c.model.AccountC;
+import com.navy.c.repository.AccountRepository;
 
 @RestController
 @RequestMapping("/api")
@@ -29,7 +29,7 @@ public class ApiController {
     @PostMapping("/register")
     public Result register(@RequestParam String name, @RequestParam String email, @RequestParam String password) {
         String bcryptPassword = bCryptPasswordEncoder.encode(password);
-        Account newAccount = new Account();
+        AccountC newAccount = new AccountC();
         newAccount.setEmail(email);
         newAccount.setName(name);
         newAccount.setPassword(bcryptPassword);
@@ -56,7 +56,7 @@ public class ApiController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String email = userDetails.getUsername();
-        Account account = accountRepository.getAccountByEmail(email);
+        AccountC account = accountRepository.getAccountByEmail(email);
         return Result.ok(new SessionData(account.getName(), account.getEmail()));
     }
 }
