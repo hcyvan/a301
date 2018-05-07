@@ -18,10 +18,10 @@ public class Result implements Serializable {
     }
 
     public static Result ok() {
-        return Result.build(0, null, "");
+        return Result.build(0, null, "成功");
     }
     public static Result ok(Object data) {
-        return Result.build(0, data, "");
+        return Result.build(0, data, "成功");
     }
 
     public Integer getStatus() {

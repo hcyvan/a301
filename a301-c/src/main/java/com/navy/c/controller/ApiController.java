@@ -39,7 +39,7 @@ public class ApiController {
 
     @PostMapping("/login")
     @ResponseBody
-    public Result login(@RequestParam String email, @RequestParam String password, HttpServletRequest httpServletRequest) {
+    public Result login(@RequestParam String email, @RequestParam String password) {
         securityService.login(email, password);
         return Result.ok();
     }
