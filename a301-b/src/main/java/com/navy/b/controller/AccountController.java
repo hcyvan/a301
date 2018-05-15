@@ -1,11 +1,10 @@
-package com.navy.b;
+package com.navy.b.controller;
 
 import com.navy.b.model.AccountB;
 import com.navy.b.repository.AccountBRepository;
 import com.navy.b.service.SecurityService;
 import com.navy.b.pojo.SessionData;
 import com.navy.common.pojo.Result;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,7 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @RestController
 @RequestMapping("/api")
-public class ApiController {
+public class AccountController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
