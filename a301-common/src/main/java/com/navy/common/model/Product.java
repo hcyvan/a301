@@ -32,25 +32,25 @@ public class Product extends BaseEntity{
     public String getName() {
         return this.name;
     }
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
     public String getItemNumber() {
         return  this.itemNumber;
     }
-    void setItemNumber(String itemNumber) {
+    public void setItemNumber(String itemNumber) {
         this.itemNumber = itemNumber;
     }
     public String getBrands() {
         return this.brands;
     }
-    void setBrands(String brands) {
+    public void setBrands(String brands) {
         this.brands = brands;
     }
     public String getDescription() {
         return this.description;
     }
-    void setDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

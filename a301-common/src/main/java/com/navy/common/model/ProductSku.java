@@ -4,7 +4,6 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 public class ProductSku extends BaseEntity {
