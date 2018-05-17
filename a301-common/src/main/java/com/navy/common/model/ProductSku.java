@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "a_product_sku")
 public class ProductSku extends BaseEntity {
     @Id
     @SequenceGenerator(name="skuIdSeq", sequenceName = "skuIdSeqGen", allocationSize = 1)

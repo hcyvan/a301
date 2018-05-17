@@ -4,10 +4,11 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "a_product")
 public class Product extends BaseEntity{
     @Id
-    @SequenceGenerator(name="product_id_seq", sequenceName = "product_id_seq_gen", initialValue = 100000, allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_id_seq")
+    @SequenceGenerator(name="productIdSeq", sequenceName = "productIdSeqGen", initialValue = 100000, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "productIdSeq")
     private Integer id;
     private String name;
     private String itemNumber;
@@ -54,7 +55,7 @@ public class Product extends BaseEntity{
         this.description = description;
     }
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ProductSku> productSkus = new ArrayList<>();
     public List<ProductSku> getProductSkus() {
         return this.productSkus;
