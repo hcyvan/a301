@@ -1,7 +1,6 @@
 package com.navy.common.model;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Entity
@@ -12,7 +11,7 @@ public class Order extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderIdSeq")
     private Integer id;
     private Integer customerId;
-    private Integer customerName;
+    private String customerName;
     private Integer sellerId;
     private Float totalPrice;
     private Integer status;
@@ -32,6 +31,18 @@ public class Order extends BaseEntity {
     }
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
+    }
+    public String getCustomerName() {
+        return this.customerName;
+    }
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+    public Integer getSellerId() {
+        return this.sellerId;
+    }
+    public void setSellerId(Integer sellerId) {
+        this.sellerId = sellerId;
     }
     public Float getTotalPrice() {
         return this.totalPrice;

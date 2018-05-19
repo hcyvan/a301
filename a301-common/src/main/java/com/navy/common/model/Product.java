@@ -10,6 +10,7 @@ public class Product extends BaseEntity{
     @SequenceGenerator(name="productIdSeq", sequenceName = "productIdSeqGen", initialValue = 100000, allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "productIdSeq")
     private Integer id;
+    private Integer sellerId;
     private String name;
     private String itemNumber;
     private String brands;
@@ -17,7 +18,8 @@ public class Product extends BaseEntity{
     private String description;
 
     public Product() {}
-    public Product(String name, String itemNumber, String brands, String description) {
+    public Product(Integer sellerId, String name, String itemNumber, String brands, String description) {
+        this.sellerId = sellerId;
         this.name = name;
         this.itemNumber = itemNumber;
         this.brands = brands;
@@ -29,6 +31,12 @@ public class Product extends BaseEntity{
     }
     void setId(Integer id) {
         this.id = id;
+    }
+    public Integer getSellerId() {
+        return this.sellerId;
+    }
+    public void setSellerId(Integer sellerId) {
+        this.sellerId = sellerId;
     }
     public String getName() {
         return this.name;

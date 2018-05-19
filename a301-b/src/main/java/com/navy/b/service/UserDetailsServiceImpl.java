@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String cell) throws UsernameNotFoundException {
         AccountB accountB = accountBRepository.getAccountBByCell(cell).orElseThrow(()->
-                new UsernameNotFoundException("Account Not Exist"));
+                new UsernameNotFoundException("B Account Not Exist: cell: " + cell));
         return new User(accountB.getCell(), accountB.getPassword(), new HashSet<>());
     }
 }

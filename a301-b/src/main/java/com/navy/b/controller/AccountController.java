@@ -55,8 +55,8 @@ public class AccountController {
     public Result session() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String cell = userDetails.getUsername();
-        AccountB accountB = accountBRepository.getAccountBByCell(cell).orElse(null);
+        String id = userDetails.getUsername();
+        AccountB accountB = accountBRepository.getAccountBById(id).orElse(null);
         if (accountB == null) {
             //TODO logo
             return Result.build(3, null, "服务内部错误");

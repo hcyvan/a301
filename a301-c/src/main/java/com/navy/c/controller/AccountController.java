@@ -2,6 +2,7 @@ package com.navy.c.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -18,7 +19,7 @@ import com.navy.c.repository.AccountRepository;
 
 @RestController
 @RequestMapping("/api")
-public class ApiController {
+public class AccountController {
     @Autowired
     private AccountRepository accountRepository;
     @Autowired
@@ -40,7 +41,11 @@ public class ApiController {
     @PostMapping("/login")
     @ResponseBody
     public Result login(@RequestParam String email, @RequestParam String password) {
-        securityService.login(email, password);
+        try {
+            securityService.login(email, password);
+        } catch (UsernameNotFoundException e) {
+            return Result.build(1, null, "用户未注册");
+        }
         return Result.ok();
     }
     @PostMapping("/logout")
@@ -56,7 +61,9 @@ public class ApiController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         String email = userDetails.getUsername();
-        AccountC account = accountRepository.getAccountByEmail(email);
+        AccountC account = accountRepository.getAccountByEmail(email).orElseThrow(
+                ()-> new UsernameNotFoundException("C Account Not Exist: email: " + email )
+        );
         return Result.ok(new SessionData(account.getName(), account.getEmail()));
     }
 }

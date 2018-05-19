@@ -1,7 +1,6 @@
 package com.navy.common.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "a_order_product")

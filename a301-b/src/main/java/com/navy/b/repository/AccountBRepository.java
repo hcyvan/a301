@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface AccountBRepository extends CrudRepository<AccountB, Long> {
     Optional<AccountB> getAccountBByCell(String cell);
+    Optional<AccountB> getAccountBById(String Id);
 }

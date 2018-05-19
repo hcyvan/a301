@@ -36,6 +36,7 @@ public class ProductController {
     @ResponseBody
     public Result createProduct(@Valid @RequestBody ProductRequest productRequest) {
         Product product = new Product(
+                1,
                 productRequest.getName(),
                 productRequest.getItemNumber(),
                 productRequest.getBrands(),
