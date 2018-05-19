@@ -9,6 +9,7 @@ import com.navy.common.pojo.Result;
 import com.navy.common.repository.ProductRepository;
 import com.navy.common.exception.ResourceNotFoundException;
 import com.navy.common.repository.ProductSkuRepository;
+import com.navy.common.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +29,8 @@ import org.slf4j.LoggerFactory;
 public class ProductController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
+    private SessionService sessionService;
+    @Autowired
     private ProductRepository productRepository;
     @Autowired
     private ProductSkuRepository productSkuRepository;
@@ -36,7 +39,7 @@ public class ProductController {
     @ResponseBody
     public Result createProduct(@Valid @RequestBody ProductRequest productRequest) {
         Product product = new Product(
-                1,
+                sessionService.getCurrentUserId(),
                 productRequest.getName(),
                 productRequest.getItemNumber(),
                 productRequest.getBrands(),
