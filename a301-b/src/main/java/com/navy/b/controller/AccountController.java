@@ -5,6 +5,7 @@ import com.navy.b.repository.AccountBRepository;
 import com.navy.b.service.SecurityService;
 import com.navy.b.pojo.SessionData;
 import com.navy.common.pojo.Result;
+import com.navy.common.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,6 +24,8 @@ public class AccountController {
     private AccountBRepository accountBRepository;
     @Autowired
     private SecurityService securityService;
+    @Autowired
+    private SessionService sessionService;
 
     @PostMapping("/register")
     @ResponseBody
@@ -53,9 +56,7 @@ public class AccountController {
     @GetMapping("session")
     @ResponseBody
     public Result session() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String id = userDetails.getUsername();
+        String id = sessionService.getCurrentUserId();
         AccountB accountB = accountBRepository.getAccountBById(id).orElse(null);
         if (accountB == null) {
             //TODO logo

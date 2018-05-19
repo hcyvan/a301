@@ -18,10 +18,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private AccountRepository accountRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        AccountC account = accountRepository.getAccountByEmail(email).orElseThrow(
-                ()->new UsernameNotFoundException("C Account Not Exist: email: " + email )
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+        AccountC account = accountRepository.getAccountCById(userId).orElseThrow(
+                ()->new UsernameNotFoundException("C Account Not Exist: id: " + userId)
         );
-        return new User(account.getEmail(), account.getPassword(), new HashSet<>());
+        return new User(account.getId(), account.getPassword(), new HashSet<>());
     }
 }

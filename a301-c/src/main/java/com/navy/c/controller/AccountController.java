@@ -1,5 +1,6 @@
 package com.navy.c.controller;
 
+import com.navy.common.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -26,6 +27,8 @@ public class AccountController {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private SecurityService securityService;
+    @Autowired
+    private SessionService sessionService;
 
     @PostMapping("/register")
     public Result register(@RequestParam String name, @RequestParam String email, @RequestParam String password) {
@@ -58,11 +61,9 @@ public class AccountController {
     @GetMapping("/session")
     @ResponseBody
     public Result session() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String email = userDetails.getUsername();
-        AccountC account = accountRepository.getAccountByEmail(email).orElseThrow(
-                ()-> new UsernameNotFoundException("C Account Not Exist: email: " + email )
+        String id = sessionService.getCurrentUserId();
+        AccountC account = accountRepository.getAccountCByEmail(id).orElseThrow(
+                ()-> new UsernameNotFoundException("C Account Not Exist: id: " + id )
         );
         return Result.ok(new SessionData(account.getName(), account.getEmail()));
     }
