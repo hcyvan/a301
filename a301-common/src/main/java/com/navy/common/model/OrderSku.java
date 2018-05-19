@@ -3,8 +3,8 @@ package com.navy.common.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "a_order_product")
-public class OrderProduct extends BaseEntity {
+@Table(name = "a_order_sku")
+public class OrderSku extends BaseEntity {
     @Id
     @SequenceGenerator(name="orderProductIdSeq", sequenceName = "orderProductIdSeqGen", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderProductIdSeq")

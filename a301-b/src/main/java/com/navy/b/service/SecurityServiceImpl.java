@@ -28,6 +28,7 @@ public class SecurityServiceImpl implements SecurityService{
         UserDetails userDetails = this.loadUserByCell(cell);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password);
         Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 

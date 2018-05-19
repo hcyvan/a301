@@ -1,12 +1,12 @@
 package com.navy.common.service;
 
-import com.navy.common.model.OrderProduct;
-import com.navy.common.pojo.OrderSku;
+import com.navy.common.pojo.OrderSkuServicePojo;
 
 import java.util.List;
 
 public interface OrderService {
-    public void createOrder(Integer customerId, Integer sellerId, String address, String remark, List<OrderSku> orderSkus);
-//    public List<OrderProduct> indexOrder();
+    public void createOrder(String customerId, String address, String remark,
+                            List<OrderSkuServicePojo> orderSkuServicePojoList);
+//    public List<OrderSku> indexOrder();
 //    public void updateOrder();
 }

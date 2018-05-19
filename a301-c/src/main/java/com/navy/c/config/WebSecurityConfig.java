@@ -25,12 +25,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/greeting").authenticated()
-                .and()
-                .authorizeRequests().antMatchers("/api/session").authenticated()
-                .and()
-                .authorizeRequests().anyRequest().permitAll()
-                .and()
-                .csrf().disable();
+            .authorizeRequests().antMatchers(
+                    "/api/login",
+                    "/api/register"
+            ).permitAll()
+            .and()
+            .authorizeRequests().anyRequest().authenticated()
+            .and()
+            .csrf().disable();
     }
 }

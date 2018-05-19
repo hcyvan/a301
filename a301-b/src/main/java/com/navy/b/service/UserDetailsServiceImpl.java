@@ -20,8 +20,8 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        AccountB accountB = accountBRepository.getAccountBById(userId).orElseThrow(()->
-                new UsernameNotFoundException("B Account Not Exist: userId: " + userId));
+        AccountB accountB = accountBRepository.getAccountBById(userId).orElseThrow(
+                ()-> new UsernameNotFoundException("B Account Not Exist: id: " + userId));
         return new User(accountB.getId(), accountB.getPassword(), new HashSet<>());
     }
 }

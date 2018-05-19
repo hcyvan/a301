@@ -1,11 +1,11 @@
 package com.navy.common.pojo;
 
 
-public class OrderSku {
+public class OrderSkuServicePojo {
     private String skuCode;
     private Integer number;
 
-    public OrderSku(String skuCode, Integer number) {
+    public OrderSkuServicePojo(String skuCode, Integer number) {
         this.skuCode = skuCode;
         this.number = number;
     }

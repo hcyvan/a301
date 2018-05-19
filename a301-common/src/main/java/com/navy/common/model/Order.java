@@ -10,9 +10,9 @@ public class Order extends BaseEntity {
     @SequenceGenerator(name="orderIdSeq", sequenceName = "orderIdSeqGen", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderIdSeq")
     private Integer id;
-    private Integer customerId;
+    private String customerId;
     private String customerName;
-    private Integer sellerId;
+    private String sellerId;
     private Float totalPrice;
     private Integer status;
     private String address;
@@ -26,10 +26,10 @@ public class Order extends BaseEntity {
     public void  setId(Integer id) {
         this.id = id;
     }
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return this.customerId;
     }
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
     public String getCustomerName() {
@@ -38,10 +38,10 @@ public class Order extends BaseEntity {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-    public Integer getSellerId() {
+    public String getSellerId() {
         return this.sellerId;
     }
-    public void setSellerId(Integer sellerId) {
+    public void setSellerId(String sellerId) {
         this.sellerId = sellerId;
     }
     public Float getTotalPrice() {
@@ -71,11 +71,11 @@ public class Order extends BaseEntity {
 
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderProduct> orderProducts;
-    public List<OrderProduct> getOrderProducts() {
-        return this.orderProducts;
+    private List<OrderSku> orderSkus;
+    public List<OrderSku> getOrderSkus() {
+        return this.orderSkus;
     }
-    public void setOrderProducts(List<OrderProduct> orderProducts) {
-        this.orderProducts = orderProducts;
+    public void setOrderSkus(List<OrderSku> orderSkus) {
+        this.orderSkus = orderSkus;
     }
 }
