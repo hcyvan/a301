@@ -8,18 +8,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.navy.c.model.AccountC;
-import com.navy.c.repository.AccountRepository;
+import com.navy.c.repository.AccountCRepository;
 
 import java.util.HashSet;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountCRepository accountCRepository;
 
     @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        AccountC account = accountRepository.getAccountCById(userId).orElseThrow(
+        AccountC account = accountCRepository.getAccountCById(userId).orElseThrow(
                 ()->new UsernameNotFoundException("C Account Not Exist: id: " + userId)
         );
         return new User(account.getId(), account.getPassword(), new HashSet<>());

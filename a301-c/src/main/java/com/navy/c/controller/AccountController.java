@@ -2,7 +2,6 @@ package com.navy.c.controller;
 
 import com.navy.common.service.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,13 +15,13 @@ import com.navy.common.pojo.SessionData;
 import com.navy.common.pojo.Result;
 import com.navy.c.service.SecurityService;
 import com.navy.c.model.AccountC;
-import com.navy.c.repository.AccountRepository;
+import com.navy.c.repository.AccountCRepository;
 
 @RestController
 @RequestMapping("/api")
 public class AccountController {
     @Autowired
-    private AccountRepository accountRepository;
+    private AccountCRepository accountCRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
@@ -37,7 +36,7 @@ public class AccountController {
         newAccount.setEmail(email);
         newAccount.setName(name);
         newAccount.setPassword(bcryptPassword);
-        accountRepository.save(newAccount);
+        accountCRepository.save(newAccount);
         return Result.ok();
     }
 
@@ -62,7 +61,7 @@ public class AccountController {
     @ResponseBody
     public Result session() {
         String id = sessionService.getCurrentUserId();
-        AccountC account = accountRepository.getAccountCByEmail(id).orElseThrow(
+        AccountC account = accountCRepository.getAccountCByEmail(id).orElseThrow(
                 ()-> new UsernameNotFoundException("C Account Not Exist: id: " + id )
         );
         return Result.ok(new SessionData(account.getName(), account.getEmail()));

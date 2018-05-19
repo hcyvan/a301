@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface AccountRepository extends CrudRepository<AccountC, Long> {
+public interface AccountCRepository extends CrudRepository<AccountC, Long> {
     Optional<AccountC> getAccountCByEmail(String email);
     Optional<AccountC> getAccountCById(String id);
 }
