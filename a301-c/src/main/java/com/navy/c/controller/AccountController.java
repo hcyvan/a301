@@ -31,6 +31,9 @@ public class AccountController {
 
     @PostMapping("/register")
     public Result register(@RequestParam String name, @RequestParam String email, @RequestParam String password) {
+        if (accountCRepository.getAccountCByEmail(email).isPresent()) {
+            return Result.build(1, null,"邮箱已经注册");
+        }
         String bcryptPassword = bCryptPasswordEncoder.encode(password);
         AccountC newAccount = new AccountC();
         newAccount.setEmail(email);
@@ -61,7 +64,7 @@ public class AccountController {
     @ResponseBody
     public Result session() {
         String id = sessionService.getCurrentUserId();
-        AccountC account = accountCRepository.getAccountCByEmail(id).orElseThrow(
+        AccountC account = accountCRepository.getAccountCById(id).orElseThrow(
                 ()-> new UsernameNotFoundException("C Account Not Exist: id: " + id )
         );
         return Result.ok(new SessionData(account.getName(), account.getEmail()));

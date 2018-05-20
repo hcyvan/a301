@@ -1,5 +1,6 @@
 package com.navy.c.controller;
 
+import com.navy.c.model.AccountC;
 import com.navy.c.pojo.OrderCreateRequest;
 import com.navy.c.pojo.OrderSkuCreateRequest;
 import com.navy.common.pojo.OrderSkuServicePojo;
@@ -23,13 +24,15 @@ public class OrderController {
     @PostMapping("/order")
     @ResponseBody
     public Result createOrder(@Valid @RequestBody OrderCreateRequest orderCreateRequest) {
-        String customerId = sessionService.getCurrentUserId();
+        AccountC customer = (AccountC) sessionService.getCurrentUser();
+        String customerId = customer.getId();
+        String customerName = customer.getName();
 
         List<OrderSkuCreateRequest> orderSkuCreateRequests = orderCreateRequest.getOrderSkus();
         List<OrderSkuServicePojo> orderSkus = orderSkuCreateRequests.stream().map(orderSkuCreateRequest -> new OrderSkuServicePojo(
                 orderSkuCreateRequest.getSkuCode(), orderSkuCreateRequest.getNumber())
         ).collect(Collectors.toList());
-        orderService.createOrder(customerId, "", orderCreateRequest.getRemark(), orderSkus);
+        orderService.createOrder(customerId, customerName,"", orderCreateRequest.getRemark(), orderSkus);
         return Result.ok();
     }
 }

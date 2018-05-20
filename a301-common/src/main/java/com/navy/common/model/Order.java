@@ -70,7 +70,7 @@ public class Order extends BaseEntity {
     }
 
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<OrderSku> orderSkus;
     public List<OrderSku> getOrderSkus() {
         return this.orderSkus;

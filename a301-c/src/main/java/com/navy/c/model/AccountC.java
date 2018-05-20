@@ -1,5 +1,6 @@
 package com.navy.c.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -8,12 +9,13 @@ import org.hibernate.annotations.GenericGenerator;
 import com.navy.common.model.BaseEntity;
 
 @Entity
-public class AccountC {
+public class AccountC extends BaseEntity{
     @Id
     @GenericGenerator(name="systemUUID",strategy="uuid")
     @GeneratedValue(generator="systemUUID")
     private String id;
     private String name;
+    @Column(unique = true)
     private String email;
     private String password;
 
