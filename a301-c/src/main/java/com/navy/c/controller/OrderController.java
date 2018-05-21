@@ -32,7 +32,7 @@ public class OrderController {
         List<OrderSkuServicePojo> orderSkus = orderSkuCreateRequests.stream().map(orderSkuCreateRequest -> new OrderSkuServicePojo(
                 orderSkuCreateRequest.getSkuCode(), orderSkuCreateRequest.getNumber())
         ).collect(Collectors.toList());
-        orderService.createOrder(customerId, customerName,"", orderCreateRequest.getRemark(), orderSkus);
+        orderService.createOrder(customerId, customerName,"", "",orderCreateRequest.getRemark(), orderSkus);
         return Result.ok();
     }
 }

@@ -13,9 +13,11 @@ public class Order extends BaseEntity {
     private String customerId;
     private String customerName;
     private String sellerId;
+    private String sellerName;
     private Float totalPrice;
     private Integer status;
     private String address;
+    private String phone;
     @Column(columnDefinition = "TEXT")
     private String remark;
 
@@ -44,6 +46,12 @@ public class Order extends BaseEntity {
     public void setSellerId(String sellerId) {
         this.sellerId = sellerId;
     }
+    public String getSellerName() {
+        return this.sellerName;
+    }
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
     public Float getTotalPrice() {
         return this.totalPrice;
     }
@@ -61,6 +69,12 @@ public class Order extends BaseEntity {
     }
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getPhone() {
+        return this.phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
     public String getRemark() {
         return this.remark;

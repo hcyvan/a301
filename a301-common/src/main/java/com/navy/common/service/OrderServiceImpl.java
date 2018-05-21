@@ -23,7 +23,7 @@ public class OrderServiceImpl implements OrderService{
     ProductSkuRepository productSkuRepository;
 
     @Override
-    public void createOrder(String customerId, String customerName, String address, String remark,
+    public void createOrder(String customerId, String customerName, String address, String phone, String remark,
                             List<OrderSkuServicePojo> orderSkuServicePojos) {
 
         List<String> skuCodes = orderSkuServicePojos.stream().map(o->o.getSkuCode()).collect(Collectors.toList());
@@ -35,6 +35,7 @@ public class OrderServiceImpl implements OrderService{
                 productSkuGroupByProductSellerId.entrySet()) {
             Order order = new Order();
             order.setAddress(address);
+            order.setPhone(phone);
             order.setRemark(remark);
             order.setCustomerId(customerId);
             order.setCustomerName(customerName);
